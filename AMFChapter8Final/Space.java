@@ -31,7 +31,7 @@ public class Space extends World
         int i = 0;
         while (i < soundFiles.length) 
         {
-            addObject (new Obstacle (soundFiles[i] + ".wav"), 50 + i*65, (i*20+200));
+            addObject (new Obstacle (soundFiles[i] + ".wav"), 20 + i*65, (i*20+150));
             i++;
         }
     }

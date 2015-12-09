@@ -38,8 +38,8 @@ public class Obstacle extends Actor
             setImage ("block-light.png");
             Greenfoot.playSound(sound);
         }
+       
     }    
-    
     public void playSound()
     {
         Greenfoot.playSound(sound);

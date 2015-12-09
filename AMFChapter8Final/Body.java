@@ -14,8 +14,8 @@ public class Body extends SmoothMover
 {
     private static final double GRAVITY = 9.8;
     private static final Color defaultColor = new Color(255, 216, 0);
-    
     private double mass;
+    public int size;
     
     /**
      * Construct a Body with default size, mass, velocity and color.
@@ -59,6 +59,7 @@ public class Body extends SmoothMover
             setLocation((double)getX(), (double)getY());
             invertHorizontalVelocity();
             accelerate(0.9);
+            
         }
         else if (getY() == 0 || getY() == getWorld().getHeight()-1) {
             setLocation((double)getX(), (double)getY());
@@ -66,6 +67,7 @@ public class Body extends SmoothMover
             accelerate(0.9);
         }
     }
+/**
     
     /**
      * Apply the forces of gravity from all other celestial bodies in this universe.
@@ -103,6 +105,7 @@ public class Body extends SmoothMover
         double acceleration = force / this.mass;
         dv.setLength (acceleration);
         addToVelocity (dv);
+        
     }
     
     /**
@@ -111,5 +114,16 @@ public class Body extends SmoothMover
     public double getMass()
     {
         return mass;
+    }
+    
+        private void changeColor()
+    {
+        int x = Greenfoot.getRandomNumber(255);
+        int y = Greenfoot.getRandomNumber(255);
+        int z = Greenfoot.getRandomNumber(255);
+        GreenfootImage image = new GreenfootImage (x, y);
+        image.setColor (new Color(x,y,z));
+        image.fillOval (0, 0, size-1, size-1);
+        setImage (image);   
     }
 }
